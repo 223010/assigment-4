@@ -153,7 +153,7 @@ function renderEmptyState() {
   jobsList.innerHTML = `
     <div class="card bg-base-100 shadow">
       <div class="card-body items-center text-center py-14">
-        <div class="text-5xl mb-3">📄</div>
+        <div class="text-5xl mb-3"><img src="./jobs.png"></div>
         <p class="text-lg font-semibold">No jobs available</p>
         <p class="text-sm opacity-70">Check back soon for new job opportunities</p>
       </div>
