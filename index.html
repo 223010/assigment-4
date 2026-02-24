@@ -7,7 +7,49 @@
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
 <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
-<body>
-    <h2>Assignment 4</h2>
+<body class="bg-base-200">
+  <main class="max-w-5xl mx-auto p-5 md:p-8">
+    <h1 class="text-2xl font-bold mb-5">Job Application Tracker</h1>
+
+    <!-- DASHBOARD -->
+    <section class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-7">
+      <div class="card bg-base-100 shadow">
+        <div class="card-body">
+          <p class="text-sm opacity-70">Total</p>
+          <p id="countTotal" class="text-2xl font-bold">0</p>
+        </div>
+      </div>
+
+      <div class="card bg-base-100 shadow">
+        <div class="card-body">
+          <p class="text-sm opacity-70">Interview</p>
+          <p id="countInterview" class="text-2xl font-bold text-success">0</p>
+        </div>
+      </div>
+
+      <div class="card bg-base-100 shadow">
+        <div class="card-body">
+          <p class="text-sm opacity-70">Rejected</p>
+          <p id="countRejected" class="text-2xl font-bold text-error">0</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- AVAILABLE JOBS HEADER -->
+    <section class="flex items-center justify-between mb-3">
+      <h2 class="text-lg font-semibold">Available Jobs</h2>
+      <p id="tabJobsCount" class="text-sm opacity-70">0 jobs</p>
+    </section>
+
+    <!-- TABS -->
+    <section class="join mb-5">
+      <button id="tabAll" class="btn btn-sm join-item">All</button>
+      <button id="tabInterview" class="btn btn-sm join-item">Interview</button>
+      <button id="tabRejected" class="btn btn-sm join-item">Rejected</button>
+    </section>
+
+    <!-- JOBS LIST -->
+    <section id="jobsList" class="space-y-4"></section>
+  </main>
 </body>
 </html>
