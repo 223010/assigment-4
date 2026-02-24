@@ -7,7 +7,7 @@ let jobs = [
     type: "Full-time",
     salary: "$130,000 - $175,000",
     description: "Build cross-platform mobile applications using React Native.",
-    status: "not_applied"
+    status: "not_applied",
   },
   {
     id: 2,
@@ -16,8 +16,9 @@ let jobs = [
     location: "Los Angeles, CA",
     type: "Part-time",
     salary: "$80,000 - $120,000",
-    description: "Create modern web experiences for clients using Webflow & design systems.",
-    status: "not_applied"
+    description:
+      "Create modern web experiences for clients using Webflow & design systems.",
+    status: "not_applied",
   },
   {
     id: 3,
@@ -26,8 +27,9 @@ let jobs = [
     location: "Boston, MA",
     type: "Full-time",
     salary: "$125,000 - $165,000",
-    description: "Build dashboards and visualizations for product & business teams.",
-    status: "not_applied"
+    description:
+      "Build dashboards and visualizations for product & business teams.",
+    status: "not_applied",
   },
   {
     id: 4,
@@ -37,7 +39,7 @@ let jobs = [
     type: "Full-time",
     salary: "$95,000 - $130,000",
     description: "Build responsive UI using modern frontend tools and APIs.",
-    status: "not_applied"
+    status: "not_applied",
   },
   {
     id: 5,
@@ -47,7 +49,7 @@ let jobs = [
     type: "Contract",
     salary: "$60/hr - $85/hr",
     description: "Design clean product interfaces, prototypes, and UI kits.",
-    status: "not_applied"
+    status: "not_applied",
   },
   {
     id: 6,
@@ -56,8 +58,9 @@ let jobs = [
     location: "Remote",
     type: "Full-time",
     salary: "$70,000 - $95,000",
-    description: "Test web apps, write test cases, and help improve product quality.",
-    status: "not_applied"
+    description:
+      "Test web apps, write test cases, and help improve product quality.",
+    status: "not_applied",
   },
   {
     id: 7,
@@ -66,8 +69,9 @@ let jobs = [
     location: "Chicago, IL",
     type: "Full-time",
     salary: "$110,000 - $150,000",
-    description: "Work on backend + frontend features and deploy updates regularly.",
-    status: "not_applied"
+    description:
+      "Work on backend + frontend features and deploy updates regularly.",
+    status: "not_applied",
   },
   {
     id: 8,
@@ -76,12 +80,13 @@ let jobs = [
     location: "Remote",
     type: "Part-time",
     salary: "$40/hr - $60/hr",
-    description: "Build and customize WordPress websites with clean UI and performance focus.",
-    status: "not_applied"
-  }
+    description:
+      "Build and customize WordPress websites with clean UI and performance focus.",
+    status: "not_applied",
+  },
 ];
 
-let currentTab = "all"; 
+let currentTab = "all";
 let jobsList = document.getElementById("jobsList");
 
 let countTotal = document.getElementById("countTotal");
@@ -114,7 +119,6 @@ function getFilteredJobs() {
     return jobs;
   }
 
-
   let filtered = jobs.filter(function (job) {
     return job.status === currentTab;
   });
@@ -138,11 +142,9 @@ function updateDashboardCounts() {
 }
 
 function setActiveTabStyle() {
-
   tabAll.classList.remove("btn-primary");
   tabInterview.classList.remove("btn-primary");
   tabRejected.classList.remove("btn-primary");
-
 
   if (currentTab === "all") tabAll.classList.add("btn-primary");
   if (currentTab === "interview") tabInterview.classList.add("btn-primary");
@@ -164,9 +166,7 @@ function renderEmptyState() {
 function renderJobs() {
   let filteredJobs = getFilteredJobs();
 
-
   tabJobsCount.textContent = filteredJobs.length + " jobs";
-
 
   jobsList.innerHTML = "";
 
@@ -175,18 +175,18 @@ function renderJobs() {
     return;
   }
 
-
   filteredJobs.forEach(function (job) {
-
     let badgeHTML = `<span class="badge badge-neutral">NOT APPLIED</span>`;
-    if (job.status === "interview") badgeHTML = `<span class="badge badge-success">INTERVIEW</span>`;
-    if (job.status === "rejected") badgeHTML = `<span class="badge badge-error">REJECTED</span>`;
-
+    if (job.status === "interview")
+      badgeHTML = `<span class="badge badge-success">INTERVIEW</span>`;
+    if (job.status === "rejected")
+      badgeHTML = `<span class="badge badge-error">REJECTED</span>`;
 
     let interviewBtnClass = "btn btn-outline btn-success btn-sm";
     let rejectedBtnClass = "btn btn-outline btn-error btn-sm";
 
-    if (job.status === "interview") interviewBtnClass = "btn btn-success btn-sm";
+    if (job.status === "interview")
+      interviewBtnClass = "btn btn-success btn-sm";
     if (job.status === "rejected") rejectedBtnClass = "btn btn-error btn-sm";
 
     let card = document.createElement("div");
@@ -203,9 +203,13 @@ function renderJobs() {
             </p>
           </div>
 
-          <button id="delete-${job.id}" class="btn btn-ghost btn-sm" title="Delete">
-            🗑️
-          </button>
+          <button
+  id="delete-${job.id}"
+  title="Delete"
+  class="w-9 h-9 md:w-10 md:h-10 rounded-full border border-gray-200 bg-white text-slate-500 flex items-center justify-center shrink-0 cursor-pointer transition-all duration-200 hover:border-gray-300 hover:text-red-500 hover:bg-slate-50 active:scale-95"
+>
+  <i class="fa-regular fa-trash-can text-sm md:text-base leading-none"></i>
+</button>
         </div>
 
         <div class="mt-1">${badgeHTML}</div>
@@ -225,36 +229,35 @@ function renderJobs() {
 
     jobsList.appendChild(card);
 
-
-
-    
-    document.getElementById("interview-" + job.id).addEventListener("click", function () {
-      job.status = "interview"; 
-      render();                 
-    });
-
-  
-    document.getElementById("rejected-" + job.id).addEventListener("click", function () {
-      job.status = "rejected"; 
-      render();
-    });
-
-   
-    document.getElementById("delete-" + job.id).addEventListener("click", function () {
-      jobs = jobs.filter(function (j) {
-        return j.id !== job.id;
+    document
+      .getElementById("interview-" + job.id)
+      .addEventListener("click", function () {
+        job.status = "interview";
+        render();
       });
-      render();
-    });
+
+    document
+      .getElementById("rejected-" + job.id)
+      .addEventListener("click", function () {
+        job.status = "rejected";
+        render();
+      });
+
+    document
+      .getElementById("delete-" + job.id)
+      .addEventListener("click", function () {
+        jobs = jobs.filter(function (j) {
+          return j.id !== job.id;
+        });
+        render();
+      });
   });
 }
 
-
 function render() {
-  updateDashboardCounts(); 
-  setActiveTabStyle();     
-  renderJobs();            
+  updateDashboardCounts();
+  setActiveTabStyle();
+  renderJobs();
 }
-
 
 render();
